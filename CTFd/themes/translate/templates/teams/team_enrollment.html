@@ -6,7 +6,7 @@
 {% block content %}
 	<div class="jumbotron">
 		<div class="container">
-			<h1>Team</h1>
+			<h1>Команда</h1>
 		</div>
 	</div>
 	<div class="container">
@@ -14,7 +14,7 @@
 			<div class="col-md-6 offset-md-3 text-center">
 				<p>Welcome to {{ Configs.ctf_name }}!</p>
 				<p>
-					In order to participate you must either join or create a team.
+					Для участия вы должны либо присоединиться к команде, либо создать ее.
 				</p>
 			</div>
 		</div>
@@ -35,10 +35,10 @@
 		{% else %}
 		<div class="row pt-3">
 			<div class="col-md-3 offset-md-3 text-center">
-				<a class="btn btn-primary w-100" href="{{ url_for('teams.join') }}">Join Team</a>
+				<a class="btn btn-primary w-100" href="{{ url_for('teams.join') }}">Вступить в команду</a>
 			</div>
 			<div class="col-md-3 text-center">
-				<a class="btn btn-primary w-100" href="{{ url_for('teams.new') }}">Create Team</a>
+				<a class="btn btn-primary w-100" href="{{ url_for('teams.new') }}">Создать команду</a>
 			</div>
 		</div>
 		{% endif %}
