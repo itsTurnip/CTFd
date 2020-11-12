@@ -95,30 +95,30 @@ def TeamRegisterForm(*args, **kwargs):
 def TeamSettingsForm(*args, **kwargs):
     class _TeamSettingsForm(BaseForm):
         name = StringField(
-            "Team Name",
-            description="Your team's public name shown to other competitors",
+            "Название команды",
+            description="Название вашей команды видно остальным участникам",
         )
         password = PasswordField(
-            "New Team Password", description="Set a new team join password"
+            "Новый пароль команды", description="Установить новый пароль команды"
         )
         confirm = PasswordField(
-            "Confirm Password",
-            description="Provide your current team password (or your password) to update your team's password",
+            "Текущий пароль",
+            description="Укажите текущий пароль команды (или ваш пароль), чтобы обновить пароль вашей команды",
         )
         affiliation = StringField(
-            "Affiliation",
-            description="Your team's affiliation publicly shown to other competitors",
+            "Учреждение",
+            description="Название вашего учреждения видно остальным участникам",
         )
         website = URLField(
-            "Website",
-            description="Your team's website publicly shown to other competitors",
+            "Веб-сайт",
+            description="Ваш веб-сайт виднен остальным участникам",
         )
         country = SelectField(
-            "Country",
+            "Страна",
             choices=SELECT_COUNTRIES_LIST,
-            description="Your team's country publicly shown to other competitors",
+            description="Страна вашей команды видна остальным участникам",
         )
-        submit = SubmitField("Submit")
+        submit = SubmitField("Подтвердить")
 
         @property
         def extra(self):
