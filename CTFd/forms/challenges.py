@@ -9,16 +9,16 @@ class ChallengeSearchForm(BaseForm):
     field = SelectField(
         "Search Field",
         choices=[
-            ("name", "Name"),
+            ("name", "Название"),
             ("id", "ID"),
-            ("category", "Category"),
-            ("type", "Type"),
+            ("category", "Категория"),
+            ("type", "Тип"),
         ],
         default="name",
         validators=[InputRequired()],
     )
-    q = StringField("Parameter", validators=[InputRequired()])
-    submit = SubmitField("Search")
+    q = StringField("Параметр", validators=[InputRequired()])
+    submit = SubmitField("Поиск")
 
 
 class ChallengeFilesUploadForm(BaseForm):
