@@ -101,7 +101,7 @@ const graph_configs = {
       let option = {
         title: {
           left: "center",
-          text: "Category Breakdown"
+          text: "Статистика по станциям"
         },
         tooltip: {
           trigger: "item"
