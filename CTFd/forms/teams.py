@@ -152,10 +152,10 @@ class TeamSearchForm(BaseForm):
     field = SelectField(
         "Search Field",
         choices=[
-            ("name", "Name"),
+            ("name", "Название"),
             ("id", "ID"),
-            ("affiliation", "Affiliation"),
-            ("website", "Website"),
+            ("affiliation", "Учреждение"),
+            ("website", "Сайт"),
         ],
         default="name",
         validators=[InputRequired()],
