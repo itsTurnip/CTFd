@@ -8,7 +8,7 @@
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h2 class="modal-action text-center w-100">Edit Team</h2>
+					<h2 class="modal-action text-center w-100">Изменить команду</h2>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -79,7 +79,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h2 class="modal-action text-center w-100">Choose Captain</h2>
+					<h2 class="modal-action text-center w-100">Выбрать капитана</h2>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -189,12 +189,12 @@
 
 		<div class="row min-vh-25">
 			<div class="col-md-12">
-				<h3>Members</h3>
+				<h3>Участники</h3>
 				<table class="table table-striped">
 					<thead>
 					<tr>
-						<td><b>User Name</b></td>
-						<td><b>Score</b></td>
+						<td><b>Имя участника</b></td>
+						<td><b>Очки</b></td>
 					</tr>
 					</thead>
 					<tbody>
@@ -205,7 +205,7 @@
 									{{ member.name }}
 								</a>
 								{% if team.captain_id == member.id %}
-									<span class="badge badge-primary ml-2">Captain</span>
+									<span class="badge badge-primary ml-2">Капитан</span>
 								{% endif %}
 							</td>
 							<td>{{ member.score }}</td>
@@ -247,7 +247,7 @@
 			{% if awards %}
 				<div class="row">
 					<div class="col-md-12">
-						<h3>Awards</h3>
+						<h3>Награды</h3>
 					</div>
 					{% for award in awards %}
 						<div class="col-md-3 col-sm-6">
@@ -268,14 +268,14 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Solves</h3>
+					<h3>Решения</h3>
 					<table class="table table-striped">
 						<thead>
 						<tr>
-							<td><b>Challenge</b></td>
-							<td class="d-none d-md-block d-lg-block"><b>Category</b></td>
-							<td><b>Value</b></td>
-							<td><b>Time</b></td>
+							<td><b>Задания</b></td>
+							<td class="d-none d-md-block d-lg-block"><b>Категория</b></td>
+							<td><b>Стоимость</b></td>
+							<td><b>Время</b></td>
 						</tr>
 						</thead>
 						<tbody>
@@ -300,7 +300,7 @@
 		{% else %}
 			<div class="row min-vh-25">
 				<h3 class="opacity-50 text-center w-100 justify-content-center align-self-center">
-					No solves yet
+					Пока нет решений
 				</h3>
 			</div>
 		{% endif %}
