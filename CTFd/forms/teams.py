@@ -168,9 +168,9 @@ class PublicTeamSearchForm(BaseForm):
     field = SelectField(
         "Search Field",
         choices=[
-            ("name", "Name"),
-            ("affiliation", "Affiliation"),
-            ("website", "Website"),
+            ("name", "Название"),
+            ("affiliation", "Учреждение"),
+            ("website", "Сайт"),
         ],
         default="name",
         validators=[InputRequired()],
