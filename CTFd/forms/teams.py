@@ -71,16 +71,16 @@ def attach_custom_team_fields(form_cls, **kwargs):
 
 
 class TeamJoinForm(BaseForm):
-    name = StringField("Team Name", validators=[InputRequired()])
-    password = PasswordField("Team Password", validators=[InputRequired()])
-    submit = SubmitField("Join")
+    name = StringField("Название команды", validators=[InputRequired()])
+    password = PasswordField("Пароль команды", validators=[InputRequired()])
+    submit = SubmitField("Присоединиться")
 
 
 def TeamRegisterForm(*args, **kwargs):
     class _TeamRegisterForm(BaseForm):
-        name = StringField("Team Name", validators=[InputRequired()])
-        password = PasswordField("Team Password", validators=[InputRequired()])
-        submit = SubmitField("Create")
+        name = StringField("Название команды", validators=[InputRequired()])
+        password = PasswordField("Пароль команды", validators=[InputRequired()])
+        submit = SubmitField("Создать")
 
         @property
         def extra(self):
