@@ -6,15 +6,15 @@ import { ezAlert, ezQuery } from "../ezq";
 
 const error_template =
   '<div class="alert alert-danger alert-dismissable" role="alert">\n' +
-  '  <span class="sr-only">Error:</span>\n' +
+  '  <span class="sr-only">Ошибка:</span>\n' +
   "  {0}\n" +
   '  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>\n' +
   "</div>";
 
 const success_template =
   '<div class="alert alert-success alert-dismissable submit-row" role="alert">\n' +
-  "  <strong>Success!</strong>\n" +
-  "   Your profile has been updated\n" +
+  "  <strong>Успешно!</strong>\n" +
+  "   Ваш профиль был обновлен\n" +
   '  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>\n' +
   "</div>";
 
