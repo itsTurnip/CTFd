@@ -10,14 +10,14 @@ from CTFd.utils.countries import SELECT_COUNTRIES_LIST
 
 def SettingsForm(*args, **kwargs):
     class _SettingsForm(BaseForm):
-        name = StringField("User Name")
+        name = StringField("Имя пользователя")
         email = StringField("Email")
-        password = PasswordField("Password")
-        confirm = PasswordField("Current Password")
-        affiliation = StringField("Affiliation")
-        website = URLField("Website")
-        country = SelectField("Country", choices=SELECT_COUNTRIES_LIST)
-        submit = SubmitField("Submit")
+        password = PasswordField("Новый пароль")
+        confirm = PasswordField("Текущий пароль")
+        affiliation = StringField("Принадлежность")
+        website = URLField("Веб-сайт")
+        country = SelectField("Страна", choices=SELECT_COUNTRIES_LIST)
+        submit = SubmitField("Подтвердить")
 
         @property
         def extra(self):
