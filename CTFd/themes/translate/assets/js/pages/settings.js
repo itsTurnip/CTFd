@@ -68,7 +68,7 @@ function tokenGenerate(event) {
     .then(function(response) {
       if (response.success) {
         let body = $(`
-        <p>Please copy your API Key, it won't be shown again!</p>
+        <p>Скопируйте свой ключ API, он больше не будет отображаться!</p>
         <div class="input-group mb-3">
           <input type="text" id="user-token-result" class="form-control" value="${
             response.data.value
@@ -84,9 +84,9 @@ function tokenGenerate(event) {
           copyToClipboard(event, "#user-token-result");
         });
         ezAlert({
-          title: "API Key Generated",
+          title: "Ключ API создан",
           body: body,
-          button: "Got it!",
+          button: "Понял!!",
           large: true
         });
       }
