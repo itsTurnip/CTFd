@@ -9,7 +9,7 @@ const graph_configs = {
       let option = {
         title: {
           left: "center",
-          text: "Score over Time"
+          text: "Очки с течением времени"
         },
         tooltip: {
           trigger: "axis",
@@ -206,7 +206,7 @@ const graph_configs = {
       let option = {
         title: {
           left: "center",
-          text: "Solve Percentages"
+          text: "Процент Решений"
         },
         tooltip: {
           trigger: "item"
@@ -220,7 +220,7 @@ const graph_configs = {
         legend: {
           orient: "horizontal",
           bottom: 0,
-          data: ["Fails", "Solves"]
+          data: ["Ошибок", "Решений"]
         },
         series: [
           {
