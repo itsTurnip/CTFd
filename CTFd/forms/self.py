@@ -15,7 +15,7 @@ def SettingsForm(*args, **kwargs):
         password = PasswordField("Новый пароль")
         confirm = PasswordField("Текущий пароль")
         affiliation = StringField("Учреждение")
-        website = URLField("Веб-сайт")
+        website = URLField("Сайт")
         country = SelectField("Страна", choices=SELECT_COUNTRIES_LIST)
         submit = SubmitField("Подтвердить")
 
