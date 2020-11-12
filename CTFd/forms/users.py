@@ -101,9 +101,9 @@ class PublicUserSearchForm(BaseForm):
     field = SelectField(
         "Search Field",
         choices=[
-            ("name", "Имя пользователя"),
+            ("name", "Имя"),
             ("affiliation", "Учреждение"),
-            ("website", "Веб-сайт"),
+            ("website", "Сайт"),
         ],
         default="name",
         validators=[InputRequired()],
