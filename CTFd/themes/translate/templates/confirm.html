@@ -6,7 +6,7 @@
 {% block content %}
 	<div class="jumbotron">
 		<div class="container">
-			<h1>Confirm</h1>
+			<h1>Подтверждение</h1>
 		</div>
 	</div>
 	<div class="container">
@@ -15,13 +15,13 @@
 				{% include "components/errors.html" %}
 
 				<h3 class="text-center">
-					We've sent a confirmation email to your email address.
+					Мы отправили письмо с подтверждением на ваш адрес электронной почты.
 				</h3>
 
 				<br>
 
 				<h4 class="text-center">
-					Please click the link in that email to confirm your account.
+					Щелкните ссылку в этом электронном письме, чтобы подтвердить свою учетную запись.
 				</h4>
 
 				<hr>
@@ -29,7 +29,7 @@
 				{% with form = Forms.auth.ConfirmForm() %}
 				<form method="POST" action="{{ url_for('auth.confirm') }}">
 					<h4 class="text-center">
-						Need to resend the confirmation email?
+						Нужно повторно отправить письмо с подтверждением?
 					</h4>
 					<div class="col-md-12 text-center">
 						{{ form.submit(class="btn btn-md btn-primary btn-outlined") }}
