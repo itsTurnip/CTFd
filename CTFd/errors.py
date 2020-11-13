@@ -15,7 +15,7 @@ def forbidden(error):
 # 500
 def general_error(error):
     if error.description == InternalServerError.description:
-        error.description = "An Internal Server Error has occurred"
+        error.description = "Возникла внутрення ошибка сервера"
 
     return render_template("errors/500.html", error=error.description), 500
 

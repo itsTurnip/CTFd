@@ -62,7 +62,7 @@ def join():
         if team_size_limit:
             plural = "" if team_size_limit == 1 else "s"
             infos.append(
-                "Teams are limited to {limit} member{plural}".format(
+                "Команды могут содержать не больше {limit} участников".format(
                     limit=team_size_limit, plural=plural
                 )
             )
@@ -78,7 +78,7 @@ def join():
             team_size_limit = get_config("team_size", default=0)
             if team_size_limit and len(team.members) >= team_size_limit:
                 errors.append(
-                    "{name} has already reached the team size limit of {limit}".format(
+                    "Команда {name} уже достигла лимит в {limit} участников".format(
                         name=team.name, limit=team_size_limit
                     )
                 )
@@ -99,7 +99,7 @@ def join():
 
             return redirect(url_for("challenges.listing"))
         else:
-            errors.append("That information is incorrect")
+            errors.append("Такая информация некорректна")
             return render_template("teams/join_team.html", infos=infos, errors=errors)
 
 
@@ -132,9 +132,9 @@ def new():
 
         existing_team = Teams.query.filter_by(name=teamname).first()
         if existing_team:
-            errors.append("That team name is already taken")
+            errors.append("Такое имя команды уже занято")
         if not teamname:
-            errors.append("That team name is invalid")
+            errors.append("Имя команды неправильное")
 
         # Process additional user fields
         fields = {}
@@ -145,7 +145,7 @@ def new():
         for field_id, field in fields.items():
             value = request.form.get(f"fields[{field_id}]", "").strip()
             if field.required is True and (value is None or value == ""):
-                errors.append("Please provide all required fields")
+                errors.append("Пожалуйста, укажите все обязательные поля")
                 break
 
             # Handle special casing of existing profile fields
@@ -172,9 +172,9 @@ def new():
             valid_affiliation = True
 
         if valid_website is False:
-            errors.append("Websites must be a proper URL starting with http or https")
+            errors.append("Вебсайт должен быть правильной ссылкой, начинающейся с http или https")
         if valid_affiliation is False:
-            errors.append("Please provide a shorter affiliation")
+            errors.append("Пожалуйста, укажите учреждение покороче")
 
         if errors:
             return render_template("teams/new_team.html", errors=errors)
@@ -224,7 +224,7 @@ def private():
     score = team.score
 
     if config.is_scoreboard_frozen():
-        infos.append("Scoreboard has been frozen")
+        infos.append("Результаты заморожены")
 
     return render_template(
         "teams/private.html",
@@ -258,7 +258,7 @@ def public(team_id):
         return render_template("teams/public.html", team=team, errors=errors)
 
     if config.is_scoreboard_frozen():
-        infos.append("Scoreboard has been frozen")
+        infos.append("Результаты заморожены")
 
     return render_template(
         "teams/public.html",
