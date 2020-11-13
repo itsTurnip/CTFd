@@ -509,7 +509,7 @@ class Teams(db.Model):
         from CTFd.utils.config.visibility import scores_visible
 
         if scores_visible():
-            return self.get_place(admin=False)
+            return self.get_place(admin=False, numeric=True)
         else:
             return None
 
