@@ -119,7 +119,7 @@ const graph_configs = {
         },
         series: [
           {
-            name: "Category Breakdown",
+            name: "Разбивка по станциям",
             type: "pie",
             radius: ["30%", "50%"],
             avoidLabelOverlap: false,
@@ -224,7 +224,7 @@ const graph_configs = {
         },
         series: [
           {
-            name: "Solve Percentages",
+            name: "Процент решений",
             type: "pie",
             radius: ["30%", "50%"],
             avoidLabelOverlap: false,
@@ -268,12 +268,12 @@ const graph_configs = {
             data: [
               {
                 value: fails_count,
-                name: "Fails",
+                name: "Ошибок",
                 itemStyle: { color: "rgb(207, 38, 0)" }
               },
               {
                 value: solves_count,
-                name: "Solves",
+                name: "Решений",
                 itemStyle: { color: "rgb(0, 209, 64)" }
               }
             ]
