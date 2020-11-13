@@ -138,14 +138,14 @@
 				{% if scores_visible() %}
 					{% if place %}
 						{{ place }}
-						<small>place</small>
+						<small>место</small>
 					{% endif %}
 				{% endif %}
 			</h2>
 			<h2 id="team-score" class="text-center">
 				{% if score %}
 					{{ score }}
-					<small>points</small>
+					<small>очков</small>
 				{% endif %}
 			</h2>
 			<div class="pt-3">
@@ -154,22 +154,22 @@
 						<i class="btn-fa fas fa-cogs fa-2x px-2"
 						   data-toggle="tooltip"
 						   data-placement="top"
-						   title="Edit Team"></i>
+						   title="Редактировать команду"></i>
 
 						<a class="edit-captain">
 							<i class="btn-fa fas fa-user-tag fa-2x px-2" data-toggle="tooltip" data-placement="top"
-							   title="Choose Captain"></i>
+							   title="Выбрать капитана"></i>
 						</a>
 					{% else %}
 						<i class="btn-fa fas fa-cogs fa-2x px-2 fa-disabled"
 						   data-toggle="tooltip"
 						   data-placement="top"
-						   title="Only team captains can edit team information"></i>
+						   title="Только капитан может редактировать информацию о команде"></i>
 						<a class="edit-captain">
 							<i class="btn-fa fas fa-user-tag fa-2x px-2 fa-disabled"
 							   data-toggle="tooltip"
 							   data-placement="top"
-							   title="Only team captains can choose a new captain"></i>
+							   title="Только капитан может выбрать нового капитана"></i>
 						</a>
 					{% endif %}
 				</a>
