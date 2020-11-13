@@ -21,8 +21,8 @@ const loadChal = id => {
 
   if (chal.type === "hidden") {
     ezAlert({
-      title: "Challenge Hidden!",
-      body: "You haven't unlocked this challenge yet!",
+      title: "Задание скрыто!",
+      body: "Вы ещё не разблокировали это задание!",
       button: "Got it!"
     });
     return;
@@ -250,7 +250,7 @@ function loadUserSolves() {
 function getSolves(id) {
   return CTFd.api.get_challenge_solves({ challengeId: id }).then(response => {
     const data = response.data;
-    $(".challenge-solves").text(parseInt(data.length) + " Solves");
+    $(".challenge-solves").text(parseInt(data.length) + " решений");
     const box = $("#challenge-solves-names");
     box.empty();
     for (let i = 0; i < data.length; i++) {
@@ -399,14 +399,14 @@ const displayHint = data => {
   ezAlert({
     title: "Hint",
     body: data.html,
-    button: "Got it!"
+    button: "Принял!"
   });
 };
 
 const displayUnlock = id => {
   ezQuery({
-    title: "Unlock Hint?",
-    body: "Are you sure you want to open this hint?",
+    title: "Разблокировать подсказку?",
+    body: "Вы точно уверены, что хотите получить подсказку?",
     success: () => {
       const params = {
         target: id,
@@ -424,7 +424,7 @@ const displayUnlock = id => {
         ezAlert({
           title: "Error",
           body: response.errors.score,
-          button: "Got it!"
+          button: "Принял!"
         });
       });
     }

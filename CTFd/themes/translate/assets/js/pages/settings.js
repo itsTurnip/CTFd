@@ -99,8 +99,8 @@ function deleteToken(event) {
   const id = $elem.data("token-id");
 
   ezQuery({
-    title: "Delete Token",
-    body: "Are you sure you want to delete this token?",
+    title: "Удалить токен",
+    body: "Вы точно хотите удалить токен?",
     success: function() {
       CTFd.fetch("/api/v1/tokens/" + id, {
         method: "DELETE"
