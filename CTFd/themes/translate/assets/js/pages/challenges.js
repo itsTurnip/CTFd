@@ -23,7 +23,7 @@ const loadChal = id => {
     ezAlert({
       title: "Задание скрыто!",
       body: "Вы ещё не разблокировали это задание!",
-      button: "Got it!"
+      button: "Принял!"
     });
     return;
   }
@@ -181,7 +181,7 @@ function renderSubmissionResponse(response) {
             .split(" ")[0]
         ) +
           1 +
-          " Solves"
+          " решений"
       );
     }
 
@@ -397,7 +397,7 @@ setInterval(update, 300000); // Update every 5 minutes.
 
 const displayHint = data => {
   ezAlert({
-    title: "Hint",
+    title: "Подсказка",
     body: data.html,
     button: "Принял!"
   });
@@ -422,7 +422,7 @@ const displayUnlock = id => {
         }
 
         ezAlert({
-          title: "Error",
+          title: "Ошибка",
           body: response.errors.score,
           button: "Принял!"
         });

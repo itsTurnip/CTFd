@@ -14,6 +14,7 @@ window.CTFd = CTFd;
 window.helpers = helpers;
 window.$ = $;
 window.Moment = Moment;
+Moment.locale('ru')
 window.nunjucks = nunjucks;
 window.Howl = Howl;
 

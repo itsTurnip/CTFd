@@ -68,7 +68,7 @@ API.prototype.patch_user_public = function(parameters, body) {
   path = path.replace("{user_id}", parameters["userId"]);
 
   if (parameters["userId"] === undefined) {
-    deferred.reject(new Error("Missing required  parameter: userId"));
+    deferred.reject(new Error("Отсутствует обязательный параметр: userId"));
     return deferred.promise;
   }
 
