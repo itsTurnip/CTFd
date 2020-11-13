@@ -6,13 +6,13 @@
 			</button>
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
-					<a class="nav-link active" href="#challenge">Challenge</a>
+					<a class="nav-link active" href="#challenge">Задание</a>
 				</li>
 				{% block solves %}
 					<li class="nav-item">
 						<a class="nav-link challenge-solves" href="#solves">
 							{% if solves != None %}
-								{{ solves }} {% if solves > 1 %}Solves{% else %}Solves{% endif %}
+								{{ solves }} {% if solves > 1 %}Решений{% else %}Решений{% endif %}
 							{% endif %}
 						</a>
 					</li>
@@ -87,7 +87,7 @@
 						<div class="row text-center">
 							<div class="col-md-12">
 								<p>
-									{{ attempts }}/{{ max_attempts }} attempt{{ attempts|pluralize(attempts) }}
+									{{ attempts }}/{{ max_attempts }} попытка{{ attempts|pluralize(attempts) }}
 								</p>
 							</div>
 						</div>
@@ -103,7 +103,7 @@
 							<div class="col-md-3 form-group key-submit">
 								{% block submit %}
 								<button id="challenge-submit" class="challenge-submit" type="submit">
-									Submit
+									Подтвердить
 								</button>
 								{% endblock %}
 							</div>
@@ -125,9 +125,9 @@
 								<table class="table table-striped text-center">
 									<thead>
 									<tr>
-										<td><b>Name</b>
+										<td><b>Название</b>
 										</td>
-										<td><b>Date</b>
+										<td><b>Дата</b>
 										</td>
 									</tr>
 									</thead>
