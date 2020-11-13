@@ -28,6 +28,25 @@ const roots = {
       'pages/teams/private': 'assets/js/pages/teams/private.js',
     }
   },
+  'themes/translate': {
+    'css': {
+      'challenge-board': 'assets/css/challenge-board.scss',
+      'fonts': 'assets/css/fonts.scss',
+      'main': 'assets/css/main.scss',
+      'core': 'assets/css/core.scss',
+      'codemirror': 'assets/css/codemirror.scss',
+    },
+    'js': {
+      'pages/main': 'assets/js/pages/main.js',
+      'pages/setup': 'assets/js/pages/setup.js',
+      'pages/challenges': 'assets/js/pages/challenges.js',
+      'pages/scoreboard': 'assets/js/pages/scoreboard.js',
+      'pages/settings': 'assets/js/pages/settings.js',
+      'pages/stats': 'assets/js/pages/stats.js',
+      'pages/notifications': 'assets/js/pages/notifications.js',
+      'pages/teams/private': 'assets/js/pages/teams/private.js',
+    }
+  },
   'themes/admin': {
     'css': {
       'admin': 'assets/css/admin.scss',
@@ -180,7 +199,7 @@ function getJSConfig(root, type, entries, mode) {
       // Pretty nasty hack, would be a little better if this was purely JS
       new WebpackShellPlugin({
         onBuildEnd:[
-          mode == 'development' ? 'echo Skipping JS stub generation' : 'python3 -c \'exec(\"\"\"\nimport glob\nimport os\n\nstatic_js_dirs = [\n    "CTFd/themes/core/static/js/**/*.dev.js",\n    "CTFd/themes/admin/static/js/**/*.dev.js",\n]\n\nfor js_dir in static_js_dirs:\n    for path in glob.glob(js_dir, recursive=True):\n        if path.endswith(".dev.js"):\n            path = path.replace(".dev.js", ".min.js")\n            if os.path.isfile(path) is False:\n                open(path, "a").close()\n\"\"\")\''
+          mode == 'development' ? 'echo Skipping JS stub generation' : 'python3 -c \'exec(\"\"\"\nimport glob\nimport os\n\nstatic_js_dirs = [\n    "CTFd/themes/core/static/js/**/*.dev.js",\n    "CTFd/themes/admin/static/js/**/*.dev.js",\n    "CTFd/themes/translate/static/js/**/*.dev.js",]\n\nfor js_dir in static_js_dirs:\n    for path in glob.glob(js_dir, recursive=True):\n        if path.endswith(".dev.js"):\n            path = path.replace(".dev.js", ".min.js")\n            if os.path.isfile(path) is False:\n                open(path, "a").close()\n\"\"\")\''
         ],
         safe: true,
       }),
