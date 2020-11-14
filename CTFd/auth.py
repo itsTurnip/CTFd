@@ -99,7 +99,7 @@ def reset_password(data=None):
             "reset_password.html",
             errors=[
                 markup(
-                    "This CTF is not configured to send email.<br> Please contact an organizer to have your password reset."
+                    "Обратитесь к организатору, чтобы сбросить пароль."
                 )
             ],
         )
