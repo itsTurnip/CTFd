@@ -581,6 +581,7 @@ class ChallengeAttempt(Resource):
 
                 log(
                     "submissions",
+                    "[{date}] {name} submitted {submission} on {challenge_id} with kpm {kpm} [CORRECT]",
                     submission=request_data.get("submission", "").encode("utf-8"),
                     challenge_id=challenge_id,
                     kpm=kpm,
