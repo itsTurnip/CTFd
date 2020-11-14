@@ -175,13 +175,12 @@ function renderSubmissionResponse(response) {
     ) {
       // Only try to increment solves if the text isn't hidden
       $(".challenge-solves").text(
-        parseInt(
-          $(".challenge-solves")
-            .text()
-            .split(" ")[0]
-        ) +
-          1 +
-          " решений"
+          "Решений: " +
+          (parseInt(
+            $(".challenge-solves")
+              .text()
+              .split(" ")[0]
+          ) + 1)
       );
     }
 
