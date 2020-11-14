@@ -121,7 +121,7 @@ class BaseChallenge(object):
         for flag in flags:
             try:
                 if get_flag_class(flag.type).compare(flag, submission):
-                    return True, "Верно!"
+                    return True, "Верно"
             except FlagException as e:
                 return False, e.message
         return False, "Ответ неверный"
