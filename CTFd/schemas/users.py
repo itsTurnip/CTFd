@@ -25,7 +25,7 @@ class UserSchema(ma.ModelSchema):
         required=True,
         allow_none=False,
         validate=[
-            validate.Length(min=1, max=128, error="User names must not be empty")
+            validate.Length(min=1, max=128, error="Поле имя пользователя не должно быть пустым")
         ],
     )
     email = field_for(
@@ -33,8 +33,8 @@ class UserSchema(ma.ModelSchema):
         "email",
         allow_none=False,
         validate=[
-            validate.Email("Emails must be a properly formatted email address"),
-            validate.Length(min=1, max=128, error="Emails must not be empty"),
+            validate.Email("Электронная почта должна быть в правильном формате"),
+            validate.Length(min=1, max=128, error="Поле Email не должно быть пустым"),
         ],
     )
     website = field_for(
@@ -43,7 +43,7 @@ class UserSchema(ma.ModelSchema):
         validate=[
             # This is a dirty hack to let website accept empty strings so you can remove your website
             lambda website: validate.URL(
-                error="Websites must be a proper URL starting with http or https",
+                error="Сайты должны иметь правильный URL, начинающийся с http или https",
                 schemes={"http", "https"},
             )(website)
             if website
@@ -70,18 +70,18 @@ class UserSchema(ma.ModelSchema):
             if user_id:
                 if existing_user and existing_user.id != user_id:
                     raise ValidationError(
-                        "User name has already been taken", field_names=["name"]
+                        "Имя пользователя уже занято", field_names=["name"]
                     )
             else:
                 if existing_user:
                     if current_user:
                         if current_user.id != existing_user.id:
                             raise ValidationError(
-                                "User name has already been taken", field_names=["name"]
+                                "Имя пользователя уже занято", field_names=["name"]
                             )
                     else:
                         raise ValidationError(
-                            "User name has already been taken", field_names=["name"]
+                            "Имя пользователя уже занято", field_names=["name"]
                         )
         else:
             if name == current_user.name:
@@ -90,11 +90,11 @@ class UserSchema(ma.ModelSchema):
                 name_changes = get_config("name_changes", default=True)
                 if bool(name_changes) is False:
                     raise ValidationError(
-                        "Name changes are disabled", field_names=["name"]
+                        "Изменение имени отключено", field_names=["name"]
                     )
                 if existing_user:
                     raise ValidationError(
-                        "User name has already been taken", field_names=["name"]
+                        "Имя пользователя уже занято", field_names=["name"]
                     )
 
     @pre_load
@@ -111,19 +111,19 @@ class UserSchema(ma.ModelSchema):
             if user_id:
                 if existing_user and existing_user.id != user_id:
                     raise ValidationError(
-                        "Email address has already been used", field_names=["email"]
+                        "Электронный адрес уже использовался", field_names=["email"]
                     )
             else:
                 if existing_user:
                     if current_user:
                         if current_user.id != existing_user.id:
                             raise ValidationError(
-                                "Email address has already been used",
+                                "Электронный адрес уже использовался",
                                 field_names=["email"],
                             )
                     else:
                         raise ValidationError(
-                            "Email address has already been used", field_names=["email"]
+                            "Электронный адрес уже использовался", field_names=["email"]
                         )
         else:
             if email == current_user.email:
@@ -133,7 +133,7 @@ class UserSchema(ma.ModelSchema):
 
                 if bool(confirm) is False:
                     raise ValidationError(
-                        "Please confirm your current password", field_names=["confirm"]
+                        "Пожалуйста, подтвердите ваш текущий пароль", field_names=["confirm"]
                     )
 
                 test = verify_password(
@@ -141,16 +141,16 @@ class UserSchema(ma.ModelSchema):
                 )
                 if test is False:
                     raise ValidationError(
-                        "Your previous password is incorrect", field_names=["confirm"]
+                        "Введенный текущий пароль неверен", field_names=["confirm"]
                     )
 
                 if existing_user:
                     raise ValidationError(
-                        "Email address has already been used", field_names=["email"]
+                        "Электронный адрес уже использовался", field_names=["email"]
                     )
                 if check_email_is_whitelisted(email) is False:
                     raise ValidationError(
-                        "Only email addresses under {domains} may register".format(
+                        "Только адреса электронной почты в домене {domain} могут регистрироваться".format(
                             domains=get_config("domain_whitelist")
                         ),
                         field_names=["email"],
@@ -169,7 +169,7 @@ class UserSchema(ma.ModelSchema):
         else:
             if password and (bool(confirm) is False):
                 raise ValidationError(
-                    "Please confirm your current password", field_names=["confirm"]
+                    "Пожалуйста, подтвердите ваш текущий пароль", field_names=["confirm"]
                 )
 
             if password and confirm:
@@ -180,7 +180,7 @@ class UserSchema(ma.ModelSchema):
                     return data
                 else:
                     raise ValidationError(
-                        "Your previous password is incorrect", field_names=["confirm"]
+                        "Введенный текущий пароль неверен", field_names=["confirm"]
                     )
             else:
                 data.pop("password", None)
