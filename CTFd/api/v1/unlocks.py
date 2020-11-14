@@ -112,7 +112,7 @@ class UnlockList(Resource):
                 {
                     "success": False,
                     "errors": {
-                        "score": "You do not have enough points to unlock this hint"
+                        "score": "У вас недостаточно очков, чтобы разблокировать эту подсказку"
                     },
                 },
                 400,
@@ -129,7 +129,7 @@ class UnlockList(Resource):
             return (
                 {
                     "success": False,
-                    "errors": {"target": "You've already unlocked this this target"},
+                    "errors": {"target": "Вы уже разблокировали это"},
                 },
                 400,
             )
