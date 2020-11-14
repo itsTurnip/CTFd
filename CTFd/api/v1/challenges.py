@@ -483,7 +483,7 @@ class ChallengeAttempt(Resource):
                     "success": True,
                     "data": {
                         "status": "paused",
-                        "message": "{} is paused".format(config.ctf_name()),
+                        "message": "{} на паузе".format(config.ctf_name()),
                     },
                 },
                 403,
@@ -545,7 +545,7 @@ class ChallengeAttempt(Resource):
                     "success": True,
                     "data": {
                         "status": "ratelimited",
-                        "message": "You're submitting flags too fast. Slow down.",
+                        "message": "Вы сдаете ответы слишком часто. Помедленнее, пожалуйста.",
                     },
                 },
                 429,
@@ -565,7 +565,7 @@ class ChallengeAttempt(Resource):
                         "success": True,
                         "data": {
                             "status": "incorrect",
-                            "message": "You have 0 tries remaining",
+                            "message": "У вас не осталось попыток",
                         },
                     },
                     403,
@@ -581,7 +581,6 @@ class ChallengeAttempt(Resource):
 
                 log(
                     "submissions",
-                    "[{date}] {name} submitted {submission} on {challenge_id} with kpm {kpm} [CORRECT]",
                     submission=request_data.get("submission", "").encode("utf-8"),
                     challenge_id=challenge_id,
                     kpm=kpm,
@@ -608,9 +607,11 @@ class ChallengeAttempt(Resource):
                 if max_tries:
                     # Off by one since fails has changed since it was gotten
                     attempts_left = max_tries - fails - 1
-                    tries_str = "tries"
+                    tries_str = "попыток"
+                    if attempts_left >= 2 and attempts_left <= 4:
+                        tries_str = "попытки"
                     if attempts_left == 1:
-                        tries_str = "try"
+                        tries_str = "попытка"
                     # Add a punctuation mark if there isn't one
                     if message[-1] not in "!().;?[]{}":
                         message = message + "."
@@ -618,7 +619,7 @@ class ChallengeAttempt(Resource):
                         "success": True,
                         "data": {
                             "status": "incorrect",
-                            "message": "{} You have {} {} remaining.".format(
+                            "message": "{} У вас осталось {} {}.".format(
                                 message, attempts_left, tries_str
                             ),
                         },
@@ -642,7 +643,7 @@ class ChallengeAttempt(Resource):
                 "success": True,
                 "data": {
                     "status": "already_solved",
-                    "message": "You already solved this",
+                    "message": "Вы уже решили это задание",
                 },
             }
 
