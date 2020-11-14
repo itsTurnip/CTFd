@@ -125,7 +125,7 @@ class Hints(db.Model):
 
     @property
     def name(self):
-        return "Hint {id}".format(id=self.id)
+        return "Подсказка {id}".format(id=self.id)
 
     @property
     def category(self):
@@ -133,7 +133,7 @@ class Hints(db.Model):
 
     @property
     def description(self):
-        return "Hint for {name}".format(name=self.challenge.name)
+        return "Подсказка {name}".format(name=self.challenge.name)
 
     @property
     def html(self):
