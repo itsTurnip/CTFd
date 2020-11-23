@@ -179,7 +179,7 @@ function renderSubmissionResponse(response) {
           (parseInt(
             $(".challenge-solves")
               .text()
-              .split(" ")[0]
+              .split(" ")[1]
           ) + 1)
       );
     }
