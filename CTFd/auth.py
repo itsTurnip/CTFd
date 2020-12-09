@@ -99,7 +99,7 @@ def reset_password(data=None):
             "reset_password.html",
             errors=[
                 markup(
-                    "This CTF is not configured to send email.<br> Please contact an organizer to have your password reset."
+                    "Обратитесь к организатору, чтобы сбросить пароль."
                 )
             ],
         )
@@ -251,31 +251,31 @@ def register():
             valid_affiliation = True
 
         if not valid_email:
-            errors.append("Please enter a valid email address")
+            errors.append("Пожалуйста, введите действительный адрес электронной почты")
         if email.check_email_is_whitelisted(email_address) is False:
             errors.append(
-                "Only email addresses under {domains} may register".format(
+                "Только адреса электронной почты ниже {domains} могут быть зарегистрированы".format(
                     domains=get_config("domain_whitelist")
                 )
             )
         if names:
-            errors.append("That user name is already taken")
+            errors.append("Этот никнейм уже используется")
         if team_name_email_check is True:
-            errors.append("Your user name cannot be an email address")
+            errors.append("Ваше имя пользователя не может быть адресом электронной почты")
         if emails:
-            errors.append("That email has already been used")
+            errors.append("Этот адрес электронной почты уже был использован")
         if pass_short:
-            errors.append("Pick a longer password")
+            errors.append("Введите более длинный пароль")
         if pass_long:
-            errors.append("Pick a shorter password")
+            errors.append("Введите более короткий пароль")
         if name_len:
-            errors.append("Pick a longer user name")
+            errors.append("Введите более длинное имя пользователя")
         if valid_website is False:
-            errors.append("Websites must be a proper URL starting with http or https")
+            errors.append("Сайт должен иметь правильный URL, начинающийся с http или https.")
         if valid_country is False:
-            errors.append("Invalid country")
+            errors.append("Введите существующую страна")
         if valid_affiliation is False:
-            errors.append("Please provide a shorter affiliation")
+            errors.append("Укажите более короткое название учреждения")
 
         if len(errors) > 0:
             return render_template(
@@ -366,13 +366,13 @@ def login():
             else:
                 # This user exists but the password is wrong
                 log("logins", "[{date}] {ip} - submitted invalid password for {name}")
-                errors.append("Your username or password is incorrect")
+                errors.append("Неверное имя пользователя или пароль")
                 db.session.close()
                 return render_template("login.html", errors=errors)
         else:
             # This user just doesn't exist
             log("logins", "[{date}] {ip} - submitted invalid account information")
-            errors.append("Your username or password is incorrect")
+            errors.append("Неверное имя пользователя или пароль")
             db.session.close()
             return render_template("login.html", errors=errors)
     else:

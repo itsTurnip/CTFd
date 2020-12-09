@@ -23,12 +23,12 @@ def listing():
     errors = get_errors()
 
     if ctf_started() is False:
-        errors.append(f"{config.ctf_name()} has not started yet")
+        errors.append(f"{config.ctf_name()} ещё не начался")
 
     if ctf_paused() is True:
-        infos.append(f"{config.ctf_name()} is paused")
+        infos.append(f"{config.ctf_name()} приостановлен")
 
     if ctf_ended() is True:
-        infos.append(f"{config.ctf_name()} has ended")
+        infos.append(f"{config.ctf_name()} закончился")
 
     return render_template("challenges.html", infos=infos, errors=errors)

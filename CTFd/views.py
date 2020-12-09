@@ -113,19 +113,19 @@ def setup():
             team_name_email_check = validators.validate_email(name)
 
             if not valid_email:
-                errors.append("Please enter a valid email address")
+                errors.append("Пожалуйста, введите действительный адрес электронной почты")
             if names:
-                errors.append("That user name is already taken")
+                errors.append("Этот никнейм уже используется")
             if team_name_email_check is True:
-                errors.append("Your user name cannot be an email address")
+                errors.append("Ваше имя пользователя не может быть адресом электронной почты")
             if emails:
-                errors.append("That email has already been used")
+                errors.append("Этот адрес электронной почты уже используется")
             if pass_short:
-                errors.append("Pick a longer password")
+                errors.append("Выберите более длинный пароль")
             if pass_long:
-                errors.append("Pick a shorter password")
+                errors.append("Выберите более короткий пароль")
             if name_len:
-                errors.append("Pick a longer user name")
+                errors.append("Выберите более длинное имя пользователя")
 
             if len(errors) > 0:
                 return render_template(
@@ -211,8 +211,8 @@ def setup():
             set_config(
                 "password_change_alert_body",
                 (
-                    "Your password for {ctf_name} has been changed.\n\n"
-                    "If you didn't request a password change you can reset your password here: {url}"
+                    "Ваш пароль для {ctf_name} был изменен.\n\n"
+                    "Если вы не запрашивали смену пароля, вы можете сбросить свой пароль здесь: {url}"
                 ),
             )
 

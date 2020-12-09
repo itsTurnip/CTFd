@@ -9,10 +9,10 @@ from CTFd.forms.users import attach_custom_user_fields, build_custom_user_fields
 
 def RegistrationForm(*args, **kwargs):
     class _RegistrationForm(BaseForm):
-        name = StringField("User Name", validators=[InputRequired()])
-        email = EmailField("Email", validators=[InputRequired()])
-        password = PasswordField("Password", validators=[InputRequired()])
-        submit = SubmitField("Submit")
+        name = StringField("Пользователь", validators=[InputRequired()])
+        email = EmailField("Почта", validators=[InputRequired()])
+        password = PasswordField("Пароль", validators=[InputRequired()])
+        submit = SubmitField("Зарегистрироваться")
 
         @property
         def extra(self):
@@ -26,20 +26,20 @@ def RegistrationForm(*args, **kwargs):
 
 
 class LoginForm(BaseForm):
-    name = StringField("User Name or Email", validators=[InputRequired()])
-    password = PasswordField("Password", validators=[InputRequired()])
-    submit = SubmitField("Submit")
+    name = StringField("Пользователь или почта", validators=[InputRequired()])
+    password = PasswordField("Пароль", validators=[InputRequired()])
+    submit = SubmitField("Войти")
 
 
 class ConfirmForm(BaseForm):
-    submit = SubmitField("Resend")
+    submit = SubmitField("Повторить отправку")
 
 
 class ResetPasswordRequestForm(BaseForm):
-    email = EmailField("Email", validators=[InputRequired()])
-    submit = SubmitField("Submit")
+    email = EmailField("Почта", validators=[InputRequired()])
+    submit = SubmitField("Отправить")
 
 
 class ResetPasswordForm(BaseForm):
-    password = PasswordField("Password", validators=[InputRequired()])
-    submit = SubmitField("Submit")
+    password = PasswordField("Пароль", validators=[InputRequired()])
+    submit = SubmitField("Отправить")
