@@ -23,7 +23,7 @@ const loadChal = id => {
     ezAlert({
       title: "Задание скрыто!",
       body: "Вы ещё не разблокировали это задание!",
-      button: "Принял!"
+      button: "Окей!"
     });
     return;
   }
@@ -398,7 +398,7 @@ const displayHint = data => {
   ezAlert({
     title: "Подсказка",
     body: data.html,
-    button: "Принял!"
+    button: "Окей!"
   });
 };
 
@@ -423,7 +423,7 @@ const displayUnlock = id => {
         ezAlert({
           title: "Ошибка",
           body: response.errors.score,
-          button: "Принял!"
+          button: "Окей!"
         });
       });
     }
